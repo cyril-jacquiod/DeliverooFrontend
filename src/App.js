@@ -1,11 +1,12 @@
 import "./App.css";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import Category from "./components/Category";
 
 function App() {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-
+  // RECUPERATION DES DONNEES BACKEND IMAGES CATEGORIES...
   const fetchData = async () => {
     const response = await axios.get(
       "http://site--deliveroo-backend--zxhf4nr8wgx5.code.run"
@@ -19,7 +20,7 @@ function App() {
     fetchData();
   }, []);
 
-  // Tant que isLoading vaut true, j'affiche un indicateur de chargement
+  // AFFICHAGE MESSAGE D'ATTENTE TANT QUE isLoading IS true
   return isLoading ? (
     <p>Loading ...</p>
   ) : (
@@ -45,14 +46,6 @@ function App() {
                 return null;
               }
             })}
-            {/* {data.categories.map((category, index) => {
-          return (
-            <div>
-              <h2>{category.name}</h2>
-              {category.meals.map(()=>{})}
-            </div>
-          );
-        })} */}
           </section>
           <section className="right-part">salut</section>
         </div>
